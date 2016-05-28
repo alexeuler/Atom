@@ -15,6 +15,7 @@
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		89D80ECF2315FD396A24E170 /* Pods_Atom_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFF5F7487EC5827F39FEE20F /* Pods_Atom_Example.framework */; };
 		90D21E24D62242F2741E800C /* Pods_Atom_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31A189E0D916A41E74114114 /* Pods_Atom_Tests.framework */; };
+		FA50A9C91CF98E9E00B9055D /* ReplaceMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA50A9C81CF98E9E00B9055D /* ReplaceMe.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		B75507C497BE5764118BA01D /* Pods-Atom_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Atom_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Atom_Tests/Pods-Atom_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		E9A83F96CA50E5FF4F8E6B93 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		F530B5C1E641D7C281F36719 /* Pods-Atom_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Atom_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Atom_Example/Pods-Atom_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		FA50A9C81CF98E9E00B9055D /* ReplaceMe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReplaceMe.swift; path = ../Atom/Classes/ReplaceMe.swift; sourceTree = "<group>"; };
 		FFF5F7487EC5827F39FEE20F /* Pods_Atom_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Atom_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -72,6 +74,7 @@
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
+				FA50A9C71CF98E9200B9055D /* Classes */,
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for Atom */,
 				607FACE81AFB9204008FA782 /* Tests */,
@@ -157,6 +160,14 @@
 				31A189E0D916A41E74114114 /* Pods_Atom_Tests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FA50A9C71CF98E9200B9055D /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				FA50A9C81CF98E9E00B9055D /* ReplaceMe.swift */,
+			);
+			name = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -359,6 +370,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA50A9C91CF98E9E00B9055D /* ReplaceMe.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);

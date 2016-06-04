@@ -11,6 +11,31 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Requirements
 
+## Description
+
+### State
+
+State is the minimal required data to reconstruct the whole state of the app. State is constructed
+to be as close to view model as possible
+
+### Event
+
+Event is the simple change of state
+
+### Action
+
+Action emits one or more events. Every state change is made by actions
+ 
+### Props
+
+Props are the viewmodel required to render a view (including that of viewcontroller)
+
+### Transformers
+
+Transform state into props. The simpiest transformer just selects a part of the state relevant for 
+ the current view.
+ 
+
 ## Installation
 
 Atom is available through [CocoaPods](http://cocoapods.org). To install

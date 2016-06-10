@@ -8,6 +8,14 @@
 
 import UIKit
 
+enum MyEvent: AtomEvent
+{
+    case AAction, BAction, CAction
+}
+
+typealias State = AtomState<MyEvent>
+typealias Dispatcher = AtomDispatcher<MyEvent>
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -16,6 +24,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+
+        let myState = State()
+        myState.react(.AAction)
+
+        Dispatcher.instance.performAction(.AAction)
+        Dispatcher.instance.performAction(.BAction)
+        Dispatcher.instance.performAction(.CAction)
+
         return true
     }
 

@@ -3,12 +3,12 @@ use_frameworks!
 target 'Atom_Example' do
   pod 'Atom', :path => '../'
 
-  target 'Atom_Tests' do
-    inherit! :search_paths
+#  target 'Atom_Tests' do
+    #inherit! :search_paths
 
-    pod 'Quick', '~> 0.8'
-  pod 'Nimble', '~> 3.0'
-  pod 'FBSnapshotTestCase'
-  pod 'Nimble-Snapshots'
-  end
+#    pod 'Quick', '~> 0.8'
+#  pod 'Nimble', '~> 3.0'
+#  pod 'FBSnapshotTestCase'
+#  pod 'Nimble-Snapshots'
+#  end
 end

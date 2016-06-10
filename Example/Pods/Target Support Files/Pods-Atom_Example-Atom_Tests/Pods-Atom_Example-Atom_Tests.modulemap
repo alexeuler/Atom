@@ -1,0 +1,6 @@
+framework module Pods_Atom_Example_Atom_Tests {
+  umbrella header "Pods-Atom_Example-Atom_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

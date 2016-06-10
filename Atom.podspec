@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
                        "Ilya Saldin" => "saldin.iliya@gmail.com" }
     # s.social_media_url   = TBA
     s.platform     = :ios, "8.0"
-    s.source       = { :git => "https://github.com/alleycat-at-git/atom.git", :tag => "0.0.1" }
+    s.source       = { :path => "." }
     s.source_files  = "Atom/Classes/*.swift"
     s.exclude_files = "Atom/Classes/Exclude"
 end

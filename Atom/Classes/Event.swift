@@ -1,3 +1,4 @@
-enum Event {
-    
+protocol AtomEvent
+{
+    //
 }

@@ -14,19 +14,43 @@
 //    
 //}
 
-
-protocol State {
-    func react<Event>(state: State?, event: Event) -> State
+protocol AtomState {
+    associatedtype AtomEvent
+    static func react(state: Self?, event: AtomEvent) -> Self
 }
 
-class Ev {
+enum MyEvent {
+    case A
+    case B
+}
+
+struct MyState: AtomState {
+    typealias AtomEvent = MyEvent
     
-}
-
-struct C: State {
-    func react<Event>(state: State?, event: Event) -> State {
+    var x: Int
+    
+    static func react(state: MyState?, event: AtomEvent) -> MyState {
+        switch event {
+        case .A:
+            return MyState(x: 1)
+        default:
+            return state ?? MyState(x: 0)
+        }
     }
 }
+
+//protocol State {
+//    func react<Event>(state: State?, event: Event) -> State
+//}
+//
+//class Ev {
+//    
+//}
+//
+//struct C: State {
+//    func react<Event>(state: State?, event: Event) -> State {
+//    }
+//}
 
 
 

@@ -1,9 +1,9 @@
 //class State {
-//    
+//
 //    init() {
-//        
+//
 //    }
-//    
+//
 //    func react(state: State?, event: Event) -> State {
 //        guard let state =
 //        return state ?? State()
@@ -11,12 +11,13 @@
 //}
 //
 //extension State {
-//    
+//
 //}
 
 protocol AtomState {
     associatedtype AtomEvent
     static func react(state: Self?, event: AtomEvent) -> Self
+    static func initial() -> Self
 }
 
 enum MyEvent {
@@ -37,82 +38,65 @@ struct MyState: AtomState {
             return state ?? MyState(x: 0)
         }
     }
+    
+    static func initial() -> MyState {
+        return MyState(x: 0)
+    }
 }
 
-//protocol State {
-//    func react<Event>(state: State?, event: Event) -> State
-//}
-//
-//class Ev {
-//    
-//}
-//
-//struct C: State {
-//    func react<Event>(state: State?, event: Event) -> State {
-//    }
-//}
+extension AtomState {
+    static func react(state: Self?, event: AtomEvent) -> Self {
+        return state ?? initial()
+    }
+    
+    static var instance: Self {
+        get { return initial()  }
+    }
+    
+    func serialize() -> String {
+        return anyToString(self)
+    }
+}
 
-
-
-//protocol State {
-//    associatedtype AtomEvent
-//    func react(state: Self?, event: AtomEvent) -> Self
-//    static var instance: Self { get }
-//}
-//
-//extension State {
-//    func react(state: Self, event: AtomEvent) -> Self {
-//        return state
-//    }
-//    
-//    static var instance: Self {
-//        get { return Self() }
-//    }
-//    
-//    func serialize() -> String {
-//        return anyToString(self)
-//    }
-//    
-//    private func anyToString(value: Any?, key:String? = nil, indent: String = "", doIndent: Bool = true) -> String {
-//        var result = doIndent ? indent : ""
-//        if key != nil { result += "\(key!): " }
-//        guard let unwrapped = value else {return result + String(value)}
-//        let mirror = Mirror(reflecting: unwrapped)
-//        if let type = mirror.displayStyle {
-//            
-//            switch type {
-//            case .Optional:
-//                for child in mirror.children {
-//                    result += anyToString(child.value, key: nil, indent: indent, doIndent: false)
-//                }
-//                return result
-//                
-//            case .Collection, .Struct, .Dictionary:
-//                let closingSymbols = type == .Collection ? ["[", "]"] : ["{", "}"]
-//                if mirror.children.count == 0 {
-//                    result += closingSymbols.joinWithSeparator("")
-//                    return result
-//                }
-//                
-//                result += closingSymbols[0] + "\n"
-//                for (index, child) in mirror.children.enumerate() {
-//                    let key = type == .Collection ? nil : child.label
-//                    result += anyToString(child.value, key: key, indent: indent + "  ")
-//                    if index != Int(mirror.children.count) - 1 {result += ","}
-//                    result += "\n"
-//                }
-//                result += indent + closingSymbols[1]
-//                
-//                return result
-//                
-//            default:
-//                result += String(unwrapped)
-//                return result
-//            }
-//        } else {
-//            result += String(unwrapped)
-//            return result
-//        }
-//        
-//    }
-//}
+private func anyToString(value: Any?, key:String? = nil, indent: String = "", doIndent: Bool = true) -> String {
+    var result = doIndent ? indent : ""
+    if key != nil { result += "\(key!): " }
+    guard let unwrapped = value else {return result + String(value)}
+    let mirror = Mirror(reflecting: unwrapped)
+    if let type = mirror.displayStyle {
+        
+        switch type {
+        case .Optional:
+            for child in mirror.children {
+                result += anyToString(child.value, key: nil, indent: indent, doIndent: false)
+            }
+            return result
+            
+        case .Collection, .Struct, .Dictionary:
+            let closingSymbols = type == .Collection ? ["[", "]"] : ["{", "}"]
+            if mirror.children.count == 0 {
+                result += closingSymbols.joinWithSeparator("")
+                return result
+            }
+            
+            result += closingSymbols[0] + "\n"
+            for (index, child) in mirror.children.enumerate() {
+                let key = type == .Collection ? nil : child.label
+                result += anyToString(child.value, key: key, indent: indent + "  ")
+                if index != Int(mirror.children.count) - 1 {result += ","}
+                result += "\n"
+            }
+            result += indent + closingSymbols[1]
+            
+            return result
+            
+        default:
+            result += String(unwrapped)
+            return result
+        }
+    } else {
+        result += String(unwrapped)
+        return result
+    }
+    
+}

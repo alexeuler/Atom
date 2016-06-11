@@ -16,6 +16,7 @@
 
 protocol AtomState {
     associatedtype AtomEvent
+    static var instance: Self { get }
     static func react(state: Self?, event: AtomEvent) -> Self
     static func initial() -> Self
 }

@@ -15,7 +15,13 @@
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		89D80ECF2315FD396A24E170 /* Pods_Atom_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFF5F7487EC5827F39FEE20F /* Pods_Atom_Example.framework */; };
 		90D21E24D62242F2741E800C /* Pods_Atom_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31A189E0D916A41E74114114 /* Pods_Atom_Tests.framework */; };
-		FA50A9C91CF98E9E00B9055D /* ReplaceMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA50A9C81CF98E9E00B9055D /* ReplaceMe.swift */; };
+		FA3727101D0C93C700FD8A16 /* AtomState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA37270F1D0C93C700FD8A16 /* AtomState.swift */; };
+		FA3727161D0C973300FD8A16 /* AtomUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3727151D0C973300FD8A16 /* AtomUtils.swift */; };
+		FA3727191D0C98D700FD8A16 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3727181D0C98D700FD8A16 /* App.swift */; };
+		FA37271C1D0C992600FD8A16 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA37271B1D0C992600FD8A16 /* State.swift */; };
+		FA37271E1D0C99C500FD8A16 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA37271D1D0C99C500FD8A16 /* Todo.swift */; };
+		FAD0B0251D0C9A7E004CBDDA /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD0B0241D0C9A7E004CBDDA /* Event.swift */; };
+		FAD0B02B1D0CAF45004CBDDA /* AtomSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD0B02A1D0CAF45004CBDDA /* AtomSelector.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,7 +53,13 @@
 		B75507C497BE5764118BA01D /* Pods-Atom_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Atom_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Atom_Tests/Pods-Atom_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		E9A83F96CA50E5FF4F8E6B93 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		F530B5C1E641D7C281F36719 /* Pods-Atom_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Atom_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Atom_Example/Pods-Atom_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		FA50A9C81CF98E9E00B9055D /* ReplaceMe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReplaceMe.swift; path = ../Atom/Classes/ReplaceMe.swift; sourceTree = "<group>"; };
+		FA37270F1D0C93C700FD8A16 /* AtomState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AtomState.swift; path = ../Atom/Classes/AtomState.swift; sourceTree = "<group>"; };
+		FA3727151D0C973300FD8A16 /* AtomUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AtomUtils.swift; path = ../Atom/Classes/AtomUtils.swift; sourceTree = "<group>"; };
+		FA3727181D0C98D700FD8A16 /* App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = App.swift; path = State/App.swift; sourceTree = "<group>"; };
+		FA37271B1D0C992600FD8A16 /* State.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
+		FA37271D1D0C99C500FD8A16 /* Todo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Todo.swift; path = State/App/Todo.swift; sourceTree = "<group>"; };
+		FAD0B0241D0C9A7E004CBDDA /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		FAD0B02A1D0CAF45004CBDDA /* AtomSelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AtomSelector.swift; path = ../Atom/Classes/AtomSelector.swift; sourceTree = "<group>"; };
 		FFF5F7487EC5827F39FEE20F /* Pods_Atom_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Atom_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -96,12 +108,15 @@
 		607FACD21AFB9204008FA782 /* Example for Atom */ = {
 			isa = PBXGroup;
 			children = (
+				FA3727171D0C98B800FD8A16 /* State */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
+				FA37271B1D0C992600FD8A16 /* State.swift */,
+				FAD0B0241D0C9A7E004CBDDA /* Event.swift */,
 			);
 			name = "Example for Atom";
 			path = Atom;
@@ -162,10 +177,29 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		FA3727171D0C98B800FD8A16 /* State */ = {
+			isa = PBXGroup;
+			children = (
+				FA37271A1D0C98DC00FD8A16 /* App */,
+				FA3727181D0C98D700FD8A16 /* App.swift */,
+			);
+			name = State;
+			sourceTree = "<group>";
+		};
+		FA37271A1D0C98DC00FD8A16 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				FA37271D1D0C99C500FD8A16 /* Todo.swift */,
+			);
+			name = App;
+			sourceTree = "<group>";
+		};
 		FA50A9C71CF98E9200B9055D /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				FA50A9C81CF98E9E00B9055D /* ReplaceMe.swift */,
+				FA37270F1D0C93C700FD8A16 /* AtomState.swift */,
+				FA3727151D0C973300FD8A16 /* AtomUtils.swift */,
+				FAD0B02A1D0CAF45004CBDDA /* AtomSelector.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -370,9 +404,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA50A9C91CF98E9E00B9055D /* ReplaceMe.swift in Sources */,
+				FAD0B0251D0C9A7E004CBDDA /* Event.swift in Sources */,
+				FA37271E1D0C99C500FD8A16 /* Todo.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				FA3727191D0C98D700FD8A16 /* App.swift in Sources */,
+				FA3727101D0C93C700FD8A16 /* AtomState.swift in Sources */,
+				FA3727161D0C973300FD8A16 /* AtomUtils.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				FAD0B02B1D0CAF45004CBDDA /* AtomSelector.swift in Sources */,
+				FA37271C1D0C992600FD8A16 /* State.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

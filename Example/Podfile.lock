@@ -1,5 +1,5 @@
 PODS:
-  - Atom (0.1.0)
+  - Atom (0.0.1)
   - FBSnapshotTestCase (2.1.0):
     - FBSnapshotTestCase/SwiftSupport (= 2.1.0)
   - FBSnapshotTestCase/Core (2.1.0)
@@ -24,7 +24,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Atom: ed3259424a394422ddabaaebdb405ac2c9d3c76b
+  Atom: 0fab2e5ecb51896f64a1e2820bafc02d899a38ce
   FBSnapshotTestCase: 366ecd378511d7716c79991cd8067d1eed23578d
   Nimble: 703854335d181df169bbca9c97117b5cf8c47c1d
   Nimble-Snapshots: 2da4d2ec829b458d6886c06812c52493fce284c9

@@ -1,16 +1,44 @@
 import Foundation
 
-class Dispatcher<Event: AtomEvent,GlobalState:AtomGlobalState where GlobalState: AtomState> {
+//в рамках эксперимента
+enum MyEvent: AtomEvent {}
+
+final class GlobalState: AtomState, AtomGlobalState
+{
+    typealias Event = MyEvent
+
+    class var instance: AtomSelector {
+        get {
+            return GlobalState()
+        }
+        set {
+        }
+    }
+    func react(optionalState: GlobalState?, event: Event) -> GlobalState {
+        return GlobalState()
+    }
+
+    class func initial() -> GlobalState {
+        return GlobalState()
+    }
+    class var parentClass: AtomSelector.Type {
+        return GlobalState.self
+    }
+
+}
+
+class Dispatcher<Event: AtomEvent> {
     
     private let queue: dispatch_queue_t = dispatch_queue_create("com.github.alleycat-at-git.atom", DISPATCH_QUEUE_SERIAL)
     private var subscribers: [Any] = []
+    var globalState: GlobalState!
     
     func handle(event: Event) {
         dispatch_async(queue) { [weak self] in
             guard self != nil else { return }
-            let current: GlobalState? = GlobalState.instance as? GlobalState
-            let next: GlobalState = GlobalState.react(current, event: event)
-            GlobalState.instance = next
+            let current: GlobalState? = self!.globalState.dynamicType.instance as? GlobalState
+            let next: GlobalState = self!.globalState.react(current, event: event)
+            self!.globalState.dynamicType.instance = next
             dispatch_async(dispatch_get_main_queue()) { [weak self] in
                 guard self != nil else { return }
                 self!.notify(event)

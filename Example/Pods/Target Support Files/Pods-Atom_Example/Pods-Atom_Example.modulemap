@@ -1,6 +1,0 @@
-framework module Pods_Atom_Example {
-  umbrella header "Pods-Atom_Example-umbrella.h"
-
-  export *
-  module * { export * }
-}

@@ -16,7 +16,7 @@ protocol AtomState: AtomSelector {
      the dispathed event. Note that incoming state can be nil,
      in this case it is recommended to return initial state
      */
-    static func react(optionalState: Self?, event: Event) -> Self
+    func react(optionalState: Self?, event: Event) -> Self
     
     /*
      This is the default initial state
@@ -25,9 +25,9 @@ protocol AtomState: AtomSelector {
 }
 
 extension AtomState {
-    static func react(optionalState: Self?, event: Event) -> Self {
-        return optionalState ?? initial()
-    }
+//    static func react(optionalState: Self?, event: Event) -> Self {
+//        return optionalState ?? initial()
+//    }
     
     func serialize() -> String {
         return AtomUtils.anyToString(self)

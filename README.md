@@ -5,6 +5,15 @@
 [![License](https://img.shields.io/cocoapods/l/Atom.svg?style=flat)](http://cocoapods.org/pods/Atom)
 [![Platform](https://img.shields.io/cocoapods/p/Atom.svg?style=flat)](http://cocoapods.org/pods/Atom)
 
+##Todo
+- Add logging as a middleware
+- Gather all classes, initialization and helpers under Atom namespace
+- Add time machine screen (i.e. view controller with all states history and ability to rollback 
+states)
+- Add router
+- Add props change strategies
+
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.

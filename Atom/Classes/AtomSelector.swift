@@ -5,32 +5,12 @@ protocol AtomSelector {
 
 extension AtomSelector {
     
-    static func select(keys: Int...) -> Self {
-        var classes: [AtomSelector.Type] = []
-        var currentClass = self as AtomSelector.Type
-        while !(currentClass is AtomGlobalState.Type) {
-            classes.append(parentClass)
-            currentClass = currentClass.parentClass
-        }
-        let instance = (currentClass as! AtomGlobalState.Type).instance
-        let result = resolveHierarchy(instance, classes: classes, keys: keys) as? Self
-        if result == nil {
-            fatalError("AtomSelector: unable to resolve \(self) by keys: \(keys)")
-        }
-        return result!
-    }
-    
     static func select(ancestor: AtomSelector, keys: Int...) -> Self {
         var classes: [AtomSelector.Type] = []
         var currentClass = self as AtomSelector.Type
-        while (currentClass != ancestor.dynamicType) && !(currentClass is AtomGlobalState.Type) {
+        while (currentClass != ancestor.dynamicType) {
             classes.append(parentClass)
             currentClass = currentClass.parentClass
-        }
-        if currentClass is AtomGlobalState.Type {
-            if !(ancestor is AtomGlobalState) {
-                fatalError("AtomSelector: reached the end of the class hierarchy and did not find \(ancestor)")
-            }
         }
         let result = resolveHierarchy(ancestor, classes: classes, keys: keys) as? Self
         if result == nil {

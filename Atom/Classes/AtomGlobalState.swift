@@ -1,3 +1,3 @@
 protocol AtomGlobalState {
-    static var instance: AtomSelector { get set }
+    static var instance: Self { get set }
 }

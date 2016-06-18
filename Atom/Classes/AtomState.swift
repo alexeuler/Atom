@@ -1,8 +1,8 @@
-protocol AtomState: AtomSelector {
+protocol AtomState {
     /*
      This is the global event class defined for the whole app
      */
-    associatedtype Event: AtomEvent
+    associatedtype AtomStateEvent: AtomEvent
     
     /*
      This variable returns part of a global state corresponding to
@@ -16,7 +16,7 @@ protocol AtomState: AtomSelector {
      the dispathed event. Note that incoming state can be nil,
      in this case it is recommended to return initial state
      */
-    static func react(optionalState: Self?, event: Event) -> Self
+    static func react(optionalState: Self?, event: AtomStateEvent) -> Self
     
     /*
      This is the default initial state
@@ -25,7 +25,7 @@ protocol AtomState: AtomSelector {
 }
 
 extension AtomState {
-    static func react(optionalState: Self?, event: Event) -> Self {
+    static func react(optionalState: Self?, event: AtomStateEvent) -> Self {
         return optionalState ?? initial()
     }
     

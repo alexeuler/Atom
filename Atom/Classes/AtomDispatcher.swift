@@ -1,6 +1,6 @@
 import Foundation
 
-class Dispatcher<Event: AtomEvent,GlobalState:AtomGlobalState where GlobalState: AtomState> {
+class Dispatcher<Event: AtomEvent, GlobalState: AtomState where GlobalState.AtomStateEvent == Event, GlobalState: AtomGlobalState> {
     
     private let queue: dispatch_queue_t = dispatch_queue_create("com.github.alleycat-at-git.atom", DISPATCH_QUEUE_SERIAL)
     private var subscribers: [Any] = []
@@ -8,7 +8,7 @@ class Dispatcher<Event: AtomEvent,GlobalState:AtomGlobalState where GlobalState:
     func handle(event: Event) {
         dispatch_async(queue) { [weak self] in
             guard self != nil else { return }
-            let current: GlobalState? = GlobalState.instance as? GlobalState
+            let current: GlobalState = GlobalState.react(GlobalState.initial(), event: event)
             let next: GlobalState = GlobalState.react(current, event: event)
             GlobalState.instance = next
             dispatch_async(dispatch_get_main_queue()) { [weak self] in
@@ -19,9 +19,9 @@ class Dispatcher<Event: AtomEvent,GlobalState:AtomGlobalState where GlobalState:
     }
     
     func notify(event: Event) {
-        for sub in subscribers {
+//        for sub in subscribers {
 //            sub.stateChanged(event)
-        }
+//        }
     }
 }
     

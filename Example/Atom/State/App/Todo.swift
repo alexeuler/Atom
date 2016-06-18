@@ -3,16 +3,11 @@ extension State {
         var name: String
         var checked: Bool
         
-        typealias AtomEvent = Event
+        typealias AtomStateEvent = Event
         
         static var parent: AtomSelector.Type = App.self
-        static func resolve(parent: AtomSelector, keychain: AtomSelectorKeychain) -> Todo {
-            let typedParent = parent as! App
-            let key = keychain.getKey() as! Int
-            return typedParent.todos[key]
-        }
         
-        static func react(optionalState: Todo?, event: AtomEvent) -> Todo {
+        static func react(optionalState: Todo?, event: Event) -> Todo {
             guard var state = optionalState else { return initial() }
             
             switch event {

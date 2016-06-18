@@ -23,6 +23,7 @@
 		FA433FBB1D15C3760021F075 /* MainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA433FBA1D15C3760021F075 /* MainCell.swift */; };
 		FA433FBD1D15C5F60021F075 /* AddController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA433FBC1D15C5F60021F075 /* AddController.swift */; };
 		FA433FBF1D15C6A00021F075 /* Dispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA433FBE1D15C6A00021F075 /* Dispatcher.swift */; };
+		FA433FC21D15DE490021F075 /* Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA433FC11D15DE490021F075 /* Actions.swift */; };
 		FA5C51FB1D0F2B94005E1D95 /* AtomRootState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5C51FA1D0F2B94005E1D95 /* AtomRootState.swift */; };
 		FA5C51FF1D0F2F4D005E1D95 /* AtomDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5C51FE1D0F2F4D005E1D95 /* AtomDispatcher.swift */; };
 		FA5C52011D0F2F7E005E1D95 /* AtomSubscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5C52001D0F2F7E005E1D95 /* AtomSubscriber.swift */; };
@@ -68,6 +69,7 @@
 		FA433FBA1D15C3760021F075 /* MainCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainCell.swift; path = View/MainCell.swift; sourceTree = "<group>"; };
 		FA433FBC1D15C5F60021F075 /* AddController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddController.swift; path = Controllers/AddController.swift; sourceTree = "<group>"; };
 		FA433FBE1D15C6A00021F075 /* Dispatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dispatcher.swift; sourceTree = "<group>"; };
+		FA433FC11D15DE490021F075 /* Actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Actions.swift; sourceTree = "<group>"; };
 		FA5C51FA1D0F2B94005E1D95 /* AtomRootState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AtomRootState.swift; path = ../Atom/Classes/AtomRootState.swift; sourceTree = "<group>"; };
 		FA5C51FE1D0F2F4D005E1D95 /* AtomDispatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AtomDispatcher.swift; path = ../Atom/Classes/AtomDispatcher.swift; sourceTree = "<group>"; };
 		FA5C52001D0F2F7E005E1D95 /* AtomSubscriber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AtomSubscriber.swift; path = ../Atom/Classes/AtomSubscriber.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				FAD0B0241D0C9A7E004CBDDA /* Event.swift */,
 				FA433FB71D15B56B0021F075 /* State.swift */,
 				FA433FBE1D15C6A00021F075 /* Dispatcher.swift */,
+				FA433FC11D15DE490021F075 /* Actions.swift */,
 			);
 			name = "Example for Atom";
 			path = Atom;
@@ -458,6 +461,7 @@
 				FA5C51FB1D0F2B94005E1D95 /* AtomRootState.swift in Sources */,
 				FA433FBD1D15C5F60021F075 /* AddController.swift in Sources */,
 				FA3727161D0C973300FD8A16 /* AtomUtils.swift in Sources */,
+				FA433FC21D15DE490021F075 /* Actions.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				FA433FBB1D15C3760021F075 /* MainCell.swift in Sources */,
 				FA5C52011D0F2F7E005E1D95 /* AtomSubscriber.swift in Sources */,

@@ -46,6 +46,6 @@ class MainCell: UITableViewCell {
 
     @IBAction func switchClicked(sender: AnyObject) {
         guard props != nil else { return }
-        Dispatcher.instance.dispatch(Event.ToggleTodo(key: props.key))
+        Actions.instance.toggleTodo(props.key)
     }
 }

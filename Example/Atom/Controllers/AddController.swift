@@ -9,21 +9,21 @@
 import UIKit
 
 class AddController: UIViewController {
-
+    
     @IBOutlet weak var titleTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     @IBAction func addButtonClicked(sender: AnyObject) {
-        Dispatcher.instance.dispatch(Event.AddTodo(name: titleTextField.text!))
+        Actions.instance.addTodo(titleTextField.text ?? "")
         navigationController?.popViewControllerAnimated(true)
     }
 }

@@ -9,7 +9,7 @@ extension AtomSelector {
         var classes: [AtomSelector.Type] = []
         var currentClass = self as AtomSelector.Type
         while (currentClass != ancestor.dynamicType) {
-            classes.append(parentClass)
+            classes.append(currentClass)
             currentClass = currentClass.parentClass
         }
         let result = resolveHierarchy(ancestor, classes: classes, keys: keys) as? Self

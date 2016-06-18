@@ -10,6 +10,7 @@ import UIKit
 
 class AddController: UIViewController {
 
+    @IBOutlet weak var titleTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,6 +23,7 @@ class AddController: UIViewController {
     }
 
     @IBAction func addButtonClicked(sender: AnyObject) {
-        
+        Dispatcher.instance.dispatch(Event.AddTodo(name: titleTextField.text!))
+        navigationController?.popViewControllerAnimated(true)
     }
 }

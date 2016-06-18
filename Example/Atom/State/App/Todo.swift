@@ -11,10 +11,8 @@ extension State {
             guard var state = optionalState else { return initial() }
             
             switch event {
-            case .ToggleTodo(let name):
-                if name == state.name {
-                    state.checked = !state.checked
-                }
+            case .ToggleTodo:
+                state.checked = !state.checked
             default:
                 break
             }

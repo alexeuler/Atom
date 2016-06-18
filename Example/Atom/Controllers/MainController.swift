@@ -8,10 +8,17 @@
 
 import UIKit
 
-class MainController: UITableViewController {
+class MainController: UITableViewController, AtomSubscriber {
 
+    typealias AtomSubscriberEvent = Event
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        Dispatcher.instance.addSubscriber(AnyAtomSubscriber(self))
+    }
+    
+    func stateChanged(event: AtomSubscriberEvent) {
+        tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,6 +38,9 @@ class MainController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("MainCell") as! MainCell
+        let todoState = State.Todo.select(State.App.instance, keys: indexPath.row)
+        let props = MainCell.Props(key: indexPath.row, title: todoState.name, status: todoState.checked)
+        cell.props = props
         return cell
     }
     

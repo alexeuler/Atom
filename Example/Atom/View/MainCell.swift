@@ -11,14 +11,27 @@ import UIKit
 class MainCell: UITableViewCell {
     
     struct Props {
-        let key: String
+        let key: Int
         let title: String
         let status: Bool
+    }
+    
+    var props: Props! {
+        didSet {
+            render()
+        }
     }
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var statusSwitch: UISwitch!
+    @IBOutlet weak var statusLabel: UILabel!
     
+    func render() {
+        guard props != nil else { return }
+        titleLabel.text = props.title
+        statusSwitch.on = props.status
+        statusLabel.text = props.status ? "On" : "Off"
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -32,5 +45,7 @@ class MainCell: UITableViewCell {
     }
 
     @IBAction func switchClicked(sender: AnyObject) {
+        guard props != nil else { return }
+        Dispatcher.instance.dispatch(Event.ToggleTodo(key: props.key))
     }
 }

@@ -23,24 +23,35 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4EZ-TY-N8D" userLabel="Title">
-                                            <rect key="frame" x="8" y="11" width="42" height="21"/>
+                                            <rect key="frame" x="18" y="11" width="42" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UK6-Bc-b5Y" userLabel="Status">
-                                            <rect key="frame" x="536" y="6" width="51" height="31"/>
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UK6-Bc-b5Y" userLabel="Status">
+                                            <rect key="frame" x="533" y="6" width="51" height="31"/>
                                             <connections>
                                                 <action selector="switchClicked:" destination="J7I-Q4-aIn" eventType="valueChanged" id="cEa-MA-Ewr"/>
                                             </connections>
                                         </switch>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dhl-DR-wWO" userLabel="StatusLabel">
+                                            <rect key="frame" x="279" y="11" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="4EZ-TY-N8D" firstAttribute="centerY" secondItem="c7s-Tj-wIH" secondAttribute="centerY" id="5Oc-Ry-7ri"/>
-                                        <constraint firstAttribute="leadingMargin" secondItem="4EZ-TY-N8D" secondAttribute="leading" id="vFC-3l-51J"/>
+                                        <constraint firstItem="Dhl-DR-wWO" firstAttribute="centerY" secondItem="c7s-Tj-wIH" secondAttribute="centerY" id="8q6-W9-0Rv"/>
+                                        <constraint firstItem="Dhl-DR-wWO" firstAttribute="centerX" secondItem="c7s-Tj-wIH" secondAttribute="centerX" id="EOc-9G-fqA"/>
+                                        <constraint firstItem="4EZ-TY-N8D" firstAttribute="leading" secondItem="c7s-Tj-wIH" secondAttribute="leadingMargin" constant="10" id="h4y-4W-BWJ"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="UK6-Bc-b5Y" secondAttribute="trailing" constant="10" id="i2g-1j-JT9"/>
+                                        <constraint firstItem="UK6-Bc-b5Y" firstAttribute="centerY" secondItem="c7s-Tj-wIH" secondAttribute="centerY" id="lNf-nR-rqO"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="statusLabel" destination="Dhl-DR-wWO" id="7fb-c7-fKc"/>
                                     <outlet property="statusSwitch" destination="UK6-Bc-b5Y" id="Z37-au-xNF"/>
                                     <outlet property="titleLabel" destination="4EZ-TY-N8D" id="lfm-SF-EV0"/>
                                 </connections>
@@ -75,13 +86,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wHw-Fv-H4N">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wHw-Fv-H4N" userLabel="Title">
                                 <rect key="frame" x="40" y="285" width="520" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AMs-Jq-EpV">
-                                <rect key="frame" x="277" y="323" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AMs-Jq-EpV">
+                                <rect key="frame" x="285" y="323" width="30" height="30"/>
                                 <state key="normal" title="Add"/>
                                 <connections>
                                     <action selector="addButtonClicked:" destination="q2R-HD-sHt" eventType="touchUpInside" id="JTL-p4-Kv6"/>
@@ -92,10 +103,15 @@
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="wHw-Fv-H4N" secondAttribute="trailing" constant="20" id="2Ep-qS-K4p"/>
                             <constraint firstItem="wHw-Fv-H4N" firstAttribute="centerY" secondItem="Jh3-Zt-p9H" secondAttribute="centerY" id="Cy3-lB-HRm"/>
+                            <constraint firstItem="AMs-Jq-EpV" firstAttribute="centerX" secondItem="Jh3-Zt-p9H" secondAttribute="centerX" id="IqN-c6-DaJ"/>
                             <constraint firstItem="wHw-Fv-H4N" firstAttribute="centerX" secondItem="Jh3-Zt-p9H" secondAttribute="centerX" id="h4o-Sh-YA6"/>
                             <constraint firstItem="wHw-Fv-H4N" firstAttribute="leading" secondItem="Jh3-Zt-p9H" secondAttribute="leadingMargin" constant="20" id="i5g-tK-KdR"/>
+                            <constraint firstItem="AMs-Jq-EpV" firstAttribute="top" secondItem="wHw-Fv-H4N" secondAttribute="bottom" constant="8" id="ilA-2W-YKC"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="titleTextField" destination="wHw-Fv-H4N" id="qx1-2H-kEG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2cm-GE-wBD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -1,11 +1,11 @@
 extension State {
-    struct Todo: AtomState {
+    struct Todo: AtomState, AtomSelector {
         var name: String
         var checked: Bool
         
         typealias AtomStateEvent = Event
         
-        static var parent: AtomSelector.Type = App.self
+        static var parentClass: AtomSelector.Type = App.self
         
         static func react(optionalState: Todo?, event: Event) -> Todo {
             guard var state = optionalState else { return initial() }

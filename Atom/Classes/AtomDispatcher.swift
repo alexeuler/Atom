@@ -1,6 +1,6 @@
 import Foundation
 
-class Dispatcher<Event: AtomEvent, GlobalState: AtomState where GlobalState.AtomStateEvent == Event, GlobalState: AtomGlobalState> {
+class Dispatcher<Event: AtomEvent, GlobalState: AtomState where GlobalState.AtomStateEvent == Event, GlobalState: AtomRootState> {
     
     private let queue: dispatch_queue_t = dispatch_queue_create("com.github.alleycat-at-git.atom", DISPATCH_QUEUE_SERIAL)
     private var subscribers: [Any] = []

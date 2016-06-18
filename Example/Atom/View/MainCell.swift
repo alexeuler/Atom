@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainCell: UITableViewCell {
+class MainCell: UITableViewCell, AtomComponent {
     
     struct Props {
         let key: Int

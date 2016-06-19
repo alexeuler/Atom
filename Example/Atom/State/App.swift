@@ -1,5 +1,5 @@
 extension State {
-    struct App: AtomElement, AtomNode, AtomRoot {
+    struct App: AtomState, AtomRoot {
         typealias EventType = Event
         static var instance = App.initial()
         static var parentClass: AtomNode.Type = App.self

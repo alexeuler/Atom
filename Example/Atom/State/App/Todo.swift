@@ -1,5 +1,5 @@
 extension State {
-    struct Todo: AtomElement, AtomNode {
+    struct Todo: AtomState {
         var name: String
         var checked: Bool
         

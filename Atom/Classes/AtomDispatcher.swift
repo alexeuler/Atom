@@ -20,9 +20,9 @@ class AtomDispatcher<Event: AtomEvent, GlobalState: AtomState where GlobalState.
         }
     }
     
-    func addSubscriber(subscriber: AnyAtomSubscriber<Event>) -> String {
+    func addSubscriber<T: AtomSubscriber where T.AtomSubscriberEvent == Event>(subscriber: T) -> String {
         let uuid = NSUUID().UUIDString
-        subscribers[uuid] = subscriber
+        subscribers[uuid] = AnyAtomSubscriber(subscriber)
         return uuid
     }
     

@@ -14,7 +14,7 @@ class MainController: UITableViewController, AtomSubscriber {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Dispatcher.instance.addSubscriber(AnyAtomSubscriber(self))
+        Dispatcher.instance.addSubscriber(self)
     }
     
     func stateChanged(event: AtomSubscriberEvent) {

@@ -1,11 +1,11 @@
 import Foundation
 
-class AtomDispatcher<Event: AtomEvent, GlobalState: AtomState where GlobalState.AtomStateEvent == Event, GlobalState: AtomRootState> {
+class AtomDispatcher<EventType: AtomEvent, GlobalState: AtomElement where GlobalState.EventType == EventType, GlobalState: AtomRoot> {
     
     private let queue: dispatch_queue_t = dispatch_queue_create("com.github.alleycat-at-git.atom", DISPATCH_QUEUE_SERIAL)
-    private var subscribers: [String:AnyAtomSubscriber<Event>] = [:]
+    private var subscribers: [String:AnyAtomSubscriber<EventType>] = [:]
     
-    func dispatch(event: Event) {
+    func dispatch(event: EventType) {
         dispatch_async(queue) { [weak self] in
             guard self != nil else { return }
             let current: GlobalState = GlobalState.instance
@@ -20,7 +20,7 @@ class AtomDispatcher<Event: AtomEvent, GlobalState: AtomState where GlobalState.
         }
     }
     
-    func addSubscriber<T: AtomSubscriber where T.AtomSubscriberEvent == Event>(subscriber: T) -> String {
+    func addSubscriber<T: AtomSubscriber where T.EventType == EventType>(subscriber: T) -> String {
         let uuid = NSUUID().UUIDString
         subscribers[uuid] = AnyAtomSubscriber(subscriber)
         return uuid
@@ -31,7 +31,7 @@ class AtomDispatcher<Event: AtomEvent, GlobalState: AtomState where GlobalState.
     }
     
     
-    func notify(event: Event) {
+    func notify(event: EventType) {
         for (_, sub) in subscribers {
             sub.stateChanged(event)
         }

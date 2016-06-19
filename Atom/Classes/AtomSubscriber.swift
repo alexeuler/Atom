@@ -1,13 +1,13 @@
 protocol AtomSubscriber {
-    associatedtype AtomSubscriberEvent: AtomEvent
-    func stateChanged(event: AtomSubscriberEvent)
+    associatedtype EventType: AtomEvent
+    func stateChanged(event: EventType)
 }
 
 class AnyAtomSubscriber<E: AtomEvent>: AtomSubscriber {
     
     var _stateChanged: (E) -> Void
     
-    init<D: AtomSubscriber where D.AtomSubscriberEvent == E>(_ dependency: D) {
+    init<D: AtomSubscriber where D.EventType == E>(_ dependency: D) {
         _stateChanged = dependency.stateChanged
     }
     

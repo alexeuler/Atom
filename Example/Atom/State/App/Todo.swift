@@ -1,23 +1,23 @@
 extension State {
-    struct Todo: AtomState, AtomSelector {
+    struct Todo: AtomElement, AtomNode {
         var name: String
         var checked: Bool
         
-        typealias AtomStateEvent = Event
+        typealias EventType = Event
         
-        static var parentClass: AtomSelector.Type = App.self
+        static var parentClass: AtomNode.Type = App.self
         
-        static func react(optionalState: Todo?, event: Event) -> Todo {
-            guard var state = optionalState else { return initial() }
+        static func react(optionalCurrent: Todo?, event: EventType) -> Todo {
+            guard var current = optionalCurrent else { return initial() }
             
             switch event {
             case .ToggleTodo:
-                state.checked = !state.checked
+                current.checked = !current.checked
             default:
                 break
             }
             
-            return state
+            return current
         }
         
         static func initial() -> Todo {

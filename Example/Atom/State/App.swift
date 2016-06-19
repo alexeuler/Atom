@@ -1,8 +1,8 @@
 extension State {
-    struct App: AtomState, AtomSelector, AtomRootState {
-        typealias AtomStateEvent = Event
+    struct App: AtomElement, AtomNode, AtomRoot {
+        typealias EventType = Event
         static var instance = App.initial()
-        static var parentClass: AtomSelector.Type = App.self
+        static var parentClass: AtomNode.Type = App.self
         
         var todos: [Todo]
         

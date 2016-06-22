@@ -1,4 +1,4 @@
-protocol AtomComponent {
+public protocol AtomComponent {
     associatedtype Props
     func render()
 }

@@ -1,3 +1,3 @@
-protocol AtomEvent {
+public protocol AtomEvent {
     
 }

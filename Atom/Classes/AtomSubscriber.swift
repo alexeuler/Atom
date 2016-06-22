@@ -1,4 +1,4 @@
-protocol AtomSubscriber {
+public protocol AtomSubscriber {
     associatedtype EventType: AtomEvent
     func stateChanged(event: EventType)
 }

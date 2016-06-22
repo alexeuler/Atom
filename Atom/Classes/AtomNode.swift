@@ -1,4 +1,4 @@
-protocol AtomNode {
+public protocol AtomNode {
     // parent state class
     static var parentClass: AtomNode.Type { get }
 }

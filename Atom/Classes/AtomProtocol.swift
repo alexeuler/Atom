@@ -1,6 +1,6 @@
 import Foundation
 
-protocol AtomProtocol {
+public protocol AtomProtocol {
     associatedtype RootType: AtomElement, AtomRoot
 }
 

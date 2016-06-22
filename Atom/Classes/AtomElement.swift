@@ -1,4 +1,4 @@
-protocol AtomElement {
+public protocol AtomElement {
     /*
      This is the global event class defined for the whole app
      */

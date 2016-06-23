@@ -1,1 +1,1 @@
-typealias AtomState = protocol<AtomElement, AtomNode>
+public typealias AtomState = protocol<AtomElement, AtomNode>

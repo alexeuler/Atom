@@ -1,6 +1,6 @@
 import Foundation
 
-protocol AtomProtocol {
+public protocol AtomProtocol {
     associatedtype RootType: AtomElement, AtomRoot
 }
 
@@ -15,15 +15,15 @@ extension AtomProtocol {
         }
     }
     
-    static func dispatch(event: RootType.EventType) {
+    public static func dispatch(event: RootType.EventType) {
         dispatcher.dispatch(event)
     }
     
-    static func addSubscriber<T: AtomSubscriber where T.EventType == RootType.EventType>(subscriber: T) -> String {
+    public static func addSubscriber<T: AtomSubscriber where T.EventType == RootType.EventType>(subscriber: T) -> String {
         return dispatcher.addSubscriber(subscriber)
     }
     
-    static func removeSubscriber(key: String) {
+    public static func removeSubscriber(key: String) {
         dispatcher.removeSubscriber(key)
     }
 }

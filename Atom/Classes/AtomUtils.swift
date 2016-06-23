@@ -1,5 +1,3 @@
-
-
 class AtomUtils {
     static func anyToString(value: Any?, key:String? = nil, indent: String = "", doIndent: Bool = true) -> String {
         var result = doIndent ? indent : ""

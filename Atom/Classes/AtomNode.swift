@@ -5,7 +5,7 @@ public protocol AtomNode {
 
 extension AtomNode {
     
-    static func select(ancestor: AtomNode, keys: Int...) -> Self {
+    public static func select(ancestor: AtomNode, keys: Int...) -> Self {
         var classes: [AtomNode.Type] = []
         var currentClass = self as AtomNode.Type
         while (currentClass != ancestor.dynamicType) {

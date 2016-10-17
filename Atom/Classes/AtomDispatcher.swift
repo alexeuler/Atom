@@ -3,6 +3,7 @@ import Foundation
 class AtomDispatcher<EventType: AtomEvent, GlobalState: AtomElement where GlobalState.EventType == EventType, GlobalState: AtomRoot> {
     
     private let queue: dispatch_queue_t = dispatch_queue_create("com.github.alleycat-at-git.atom", DISPATCH_QUEUE_SERIAL)
+    private let printLogQueue: dispatch_queue_t = dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)
     private var subscribers: [String:AnyAtomSubscriber<EventType>] = [:]
     
     func dispatch(event: EventType) {
@@ -11,8 +12,12 @@ class AtomDispatcher<EventType: AtomEvent, GlobalState: AtomElement where Global
             let current: GlobalState = GlobalState.instance
             let next: GlobalState = GlobalState.react(current, event: event)
             GlobalState.instance = next
-            print(event)
-            print(next.serialize())
+            if let printQueue = self?.printLogQueue {
+                dispatch_async(printQueue) {
+                    print(event)
+                    print(next.serialize())
+                }
+            }
             dispatch_async(dispatch_get_main_queue()) { [weak self] in
                 guard self != nil else { return }
                 self!.notify(event)

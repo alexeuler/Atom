@@ -6,7 +6,7 @@ class AtomDispatcher<EventType: AtomEvent, GlobalState: AtomElement where Global
     private var subscribers: [String:AnyAtomSubscriber<EventType>] = [:]
 
     #if DEBUG
-        private let printLogQueue: dispatch_queue_t = dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)
+        private let printLogQueue: dispatch_queue_t = dispatch_get_global_queue(QOS_CLASS_UTILITY, 0)
     #endif
     
     func dispatch(event: EventType) {
@@ -18,8 +18,11 @@ class AtomDispatcher<EventType: AtomEvent, GlobalState: AtomElement where Global
             #if DEBUG
                 if let printQueue = self?.printLogQueue {
                     dispatch_async(printQueue) {
-                        print(event)
-                        print(next.serialize())
+                        let serializedState = next.serialize()
+                        dispatch_async(queue) {
+                            print(event)
+                            print(serializedState)
+                        }
                     }
                 }
             #endif

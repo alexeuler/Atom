@@ -5,9 +5,7 @@ class AtomDispatcher<EventType: AtomEvent, GlobalState: AtomElement where Global
     private let queue: dispatch_queue_t = dispatch_queue_create("com.github.alleycat-at-git.atom", DISPATCH_QUEUE_SERIAL)
     private var subscribers: [String:AnyAtomSubscriber<EventType>] = [:]
 
-    #if DEBUG
-        private let printLogQueue: dispatch_queue_t = dispatch_get_global_queue(QOS_CLASS_UTILITY, 0)
-    #endif
+    private let printLogQueue: dispatch_queue_t = dispatch_get_global_queue(QOS_CLASS_UTILITY, 0)
     
     func dispatch(event: EventType) {
         dispatch_async(queue) { [weak self] in
@@ -15,17 +13,17 @@ class AtomDispatcher<EventType: AtomEvent, GlobalState: AtomElement where Global
             let current: GlobalState = GlobalState.instance
             let next: GlobalState = GlobalState.react(current, event: event)
             GlobalState.instance = next
-            #if DEBUG
-                if let printQueue = self?.printLogQueue {
-                    dispatch_async(printQueue) {
-                        let serializedState = next.serialize()
-                        dispatch_async(queue) {
+            if let printQueue = self?.printLogQueue {
+                dispatch_async(printQueue) { [weak self] in
+                    let serializedState = next.serialize()
+                    if let selfQueue = self?.queue {
+                        dispatch_async(selfQueue) {
                             print(event)
                             print(serializedState)
                         }
                     }
                 }
-            #endif
+            }
             dispatch_async(dispatch_get_main_queue()) { [weak self] in
                 guard self != nil else { return }
                 self!.notify(event)
